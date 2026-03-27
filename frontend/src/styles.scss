@@ -1,0 +1,44 @@
+html, body { height: 100%; margin: 0; padding: 0; }
+
+* {
+  font-family: 'Montserrat', sans-serif;
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+button, div, img, .btn-sidebar {
+  user-select: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+body {
+  background-color: #1E1E1E;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #333333;
+  border-radius: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1E1E1E;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #333333 #1E1E1E;
+}
+
+html, body {
+  height: auto;
+  overflow-y: auto;
+}

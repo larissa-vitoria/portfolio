@@ -1,0 +1,367 @@
+<div class="main" [ngClass]="{ mobile: isMobile }">
+  <!-- HEADER -->
+  <div class="header">
+    <div class="name-container">
+      <p class="name">Larissa Gatti</p>
+      <p class="title" *ngIf="!isEnglish">Desenvolvedora Fullstack</p>
+      <p class="title" *ngIf="isEnglish">Fullstack Developer</p>
+    </div>
+
+    <!-- DESKTOP -->
+    <div class="right-container" *ngIf="!isMobile">
+      <button class="btn-1" (click)="goToLink('linkedin')">LinkedIn</button>
+
+      <button class="btn-1" (click)="downloadResume()">
+        {{ isEnglish ? "Resume" : "Currículo" }}
+      </button>
+
+      <div class="language-container">
+        <button class="btn-2" (click)="isEnglish = false" [class.active-lang]="!isEnglish">
+          PT
+        </button>
+        <button class="btn-2" (click)="isEnglish = true" [class.active-lang]="isEnglish">
+          EN
+        </button>
+      </div>
+    </div>
+
+    <!-- MOBILE -->
+    <div class="mobile-menu" *ngIf="isMobile">
+      <button class="hamburger" (click)="menuOpen = !menuOpen">☰</button>
+
+      <div class="dropdown" *ngIf="menuOpen">
+        <button class="btn-1" (click)="goToLink('linkedin')">LinkedIn</button>
+
+        <button class="btn-1" (click)="downloadResume()">
+          {{ isEnglish ? "Resume" : "Currículo" }}
+        </button>
+
+        <div class="language-container">
+          <button class="btn-2" (click)="isEnglish = false" [class.active-lang]="!isEnglish">
+            PT
+          </button>
+          <button class="btn-2" (click)="isEnglish = true" [class.active-lang]="isEnglish">
+            EN
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="content">
+    <!-- HERO -->
+    <div *ngIf="!isEnglish" class="hero">
+      <p class="title">Soluções tecnológicas para o seu negócio</p>
+      <p class="description">
+        Tecnologia para destacar o seu negócio. Crio sites e soluções digitais
+        que unem beleza e inteligência para atrair mais clientes e facilitar o
+        seu dia a dia.
+      </p>
+    </div>
+
+    <div *ngIf="isEnglish" class="hero">
+      <p class="title">Technological solutions for your business</p>
+      <p class="description">
+        Technology to make your business stand out. I build digital solutions
+        that combine design and intelligence to attract more clients and
+        simplify your routine.
+      </p>
+    </div>
+
+    <!-- DISCLAIMER -->
+    <p *ngIf="!isEnglish" class="disclaimer">
+      Atenção: Os projetos apresentados abaixo são representações técnicas de
+      soluções reais desenvolvidas para clientes. Para preservar a
+      confidencialidade e a privacidade de dados (LGPD), nomes, identidades
+      visuais e dados sensíveis foram anonimizados ou substituídos por elementos
+      fictícios.
+    </p>
+
+    <p *ngIf="isEnglish" class="disclaimer">
+      Attention: The projects presented below are technical representations of
+      real solutions developed for clients. To preserve confidentiality and data
+      privacy (Brazilian LGPD), names, visual identities and sensitive data have
+      been anonymized or replaced by fictional elements.
+    </p>
+
+    <!-- SITES -->
+    <div *ngIf="!isEnglish" class="sites-card-desktop card-desktop">
+      <div class="text-container">
+        <p class="card-title">Sistemas & web:</p>
+        <p class="card-subtitle">Sites que vendem</p>
+      </div>
+
+      <p class="project-description">
+        Design e confecção de sites responsivos, acessíveis de diferentes
+        dispositivos.
+      </p>
+
+      <div class="image-container">
+        <img
+          alt="foto demonstrativa de site"
+          src="assets/images/mockup_site_gatti.png"
+        />
+      </div>
+
+      <button class="btn-more" (click)="goToLink('gattijoias')">
+        Ver este projeto em detalhes
+      </button>
+    </div>
+
+    <div *ngIf="isEnglish" class="sites-card-desktop card-desktop">
+      <div class="text-container">
+        <p class="card-title">Systems & web:</p>
+        <p class="card-subtitle">Websites that sell</p>
+      </div>
+
+      <p class="project-description">
+        Design and building of responsive websites, accessible from different
+        devices.
+      </p>
+
+      <div class="image-container">
+        <img
+          alt="foto demonstrativa de site"
+          src="assets/images/mockup_site_gatti.png"
+        />
+      </div>
+
+      <button class="btn-more" (click)="goToLink('gattijoias')">
+        View project details
+      </button>
+    </div>
+
+    <!-- AUTOMAÇÃO -->
+    <div *ngIf="!isEnglish" class="autom-card-desktop card-desktop">
+      <div class="text-container">
+        <p class="card-title">Automação:</p>
+        <p class="card-subtitle">Sua empresa no piloto automático</p>
+      </div>
+
+      <p class="project-description">
+        Sua empresa no piloto automático. Chega de perder tempo com tarefas
+        repetitivas. Automatizo seus processos para você focar no que realmente
+        importa.
+      </p>
+
+      <div class="video-container">
+        <video
+          #videoPlayer
+          muted
+          loop
+          autoplay
+          playsinline
+          preload="metadata"
+          [attr.muted]="true"
+        >
+          <source
+            src="assets/videos/video_automacao_sem_audio.mp4"
+            type="video/mp4"
+          />
+        </video>
+      </div>
+
+      <button class="btn-more" (click)="goToLink('automacao')">
+        Ver vídeo completo
+      </button>
+    </div>
+
+    <div *ngIf="isEnglish" class="autom-card-desktop card-desktop">
+      <div class="text-container">
+        <p class="card-title">Automation:</p>
+        <p class="card-subtitle">Your company on the autopilot</p>
+      </div>
+
+      <p class="project-description">
+        Your business on autopilot. Stop wasting time on repetitive tasks. I
+        automate your processes so you can focus on what really matters.
+      </p>
+
+      <div class="video-container">
+        <video
+          #videoPlayer
+          muted
+          loop
+          autoplay
+          playsinline
+          preload="metadata"
+          [attr.muted]="true"
+        >
+          <source
+            src="assets/videos/video_automacao_sem_audio.mp4"
+            type="video/mp4"
+          />
+        </video>
+      </div>
+
+      <button class="btn-more" (click)="goToLink('dashboardLooker')">
+        Watch full video
+      </button>
+    </div>
+
+    <!-- dados e IA -->
+    <div *ngIf="!isEnglish" class="data-card-desktop card-desktop">
+      <div class="text-container">
+        <p class="card-title">Dados & IA:</p>
+        <p class="card-subtitle">Predição e análise inteligente</p>
+      </div>
+
+      <p class="project-description">
+        Entenda o seu negócio. Dashboards que mostram de onde vêm seus lucros e
+        ajudam você a planejar o futuro com segurança.
+      </p>
+
+      <div class="image-container">
+        <img
+          alt="foto demonstrativa de site"
+          src="assets/images/data_pred.png"
+        />
+      </div>
+
+      <button class="btn-more" (click)="goToLink('agendaBlindada')">
+        Ver exemplo de análise
+      </button>
+    </div>
+
+    <div *ngIf="isEnglish" class="data-card-desktop card-desktop">
+      <div class="text-container">
+        <p class="card-title">Data & IA:</p>
+        <p class="card-subtitle">Prediction and smart analysis</p>
+      </div>
+
+      <p class="project-description">
+        Understand your business. Custom dashboards that show where your profit
+        comes from and help you plan your future with confidence.
+      </p>
+
+      <div class="image-container">
+        <img
+          alt="foto demonstrativa de site"
+          src="assets/images/data_pred.png"
+        />
+      </div>
+
+      <button class="btn-more" (click)="goToLink('agendaBlindada')">
+        View analysis example
+      </button>
+    </div>
+
+    <!-- DESIGN -->
+    <div *ngIf="!isEnglish" class="design-card-desktop card-desktop">
+      <div class="text-container">
+        <p class="card-title">Design estratégico:</p>
+        <p class="card-subtitle">Identidade visual que comunica valor</p>
+      </div>
+
+      <p class="project-description">
+        Identidade que encanta. Do logotipo da sua marca ao convite digital da
+        sua formatura, crio visuais que transmitem valor e profissionalismo.
+      </p>
+
+      <div class="image-container">
+        <img
+          alt="foto demonstrativa de site"
+          src="assets/images/design_mockup.png"
+        />
+      </div>
+    </div>
+
+    <div *ngIf="isEnglish" class="design-card-desktop card-desktop">
+      <div class="text-container">
+        <p class="card-title">Strategic Design:</p>
+        <p class="card-subtitle">Visual Identity that Communicates Value</p>
+      </div>
+
+      <p class="project-description">
+        Designs that charm. From your brand's logo to your graduation's digital
+        invitation, I create visuals that convey value and professionalism.
+      </p>
+
+      <div class="image-container">
+        <img
+          alt="foto demonstrativa de site"
+          src="assets/images/design_mockup.png"
+        />
+      </div>
+    </div>
+
+    <!-- SOBRE MIM -->
+    <div *ngIf="!isEnglish" class="about-me card-desktop">
+      <div class="profile-foto">
+        <img alt="foto de perfil" src="assets/images/perfil_lattes.png" />
+      </div>
+
+      <div class="text-container">
+        <p class="card-title">Sobre mim</p>
+      </div>
+
+      <p class="project-description">
+        Olá, eu sou a Larissa. Unindo minha formação em Enfermagem pela UFSC e
+        minha trajetória como Desenvolvedora Fullstack, crio soluções digitais
+        que não são apenas bonitas, mas inteligentes e funcionais. Minha missão
+        é traduzir a complexidade dos dados e da tecnologia em ferramentas
+        simples que fazem o seu negócio crescer, seja através de um site que
+        vende ou de uma automação que te devolve tempo.
+      </p>
+    </div>
+
+    <div *ngIf="isEnglish" class="about-me card-desktop">
+      <div class="profile-foto">
+        <img alt="foto de perfil" src="assets/images/perfil_lattes.png" />
+      </div>
+
+      <div class="text-container">
+        <p class="card-title">About Me</p>
+      </div>
+
+      <p class="project-description">
+        Hi, I'm Larissa. Combining my background in Nursing from UFSC and my
+        experience as a Fullstack Developer, I create digital solutions that are
+        not only beautiful, but intelligent and functional. My mission is to
+        translate the complexity of data and technology into simple tools that
+        make your business grow, whether through a website that sells or
+        automation that gives you back time.
+      </p>
+    </div>
+
+    <!-- ACTION -->
+    <div *ngIf="!isEnglish" class="action card-desktop">
+      <p class="text">
+        Pronto para levar seu negócio ao próximo nível? Vamos conversar sobre o
+        seu projeto e criar uma solução personalizada!
+      </p>
+      <button (click)="openWhatsApp('PT')">
+        Solicitar orçamento gratuito
+      </button>
+    </div>
+
+    <div *ngIf="isEnglish" class="action card-desktop">
+      <div class="text">
+        Ready to take your business to the next level? Let's talk about your
+        project and create a personalized solution for your needs!
+      </div>
+      <button (click)="openWhatsApp('EN')">Request free assessment</button>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <div class="left-container">
+      <button (click)="goToLink('linkedin')">
+        <p>LinkedIn</p>
+      </button>
+
+      <button (click)="downloadResume()">
+        <p *ngIf="isEnglish">Resume</p>
+        <p *ngIf="!isEnglish">Currículo</p>
+      </button>
+    </div>
+
+    <div class="right-container">
+      <p *ngIf="!isEnglish">
+        © 2026 Larissa Gatti. Todos os direitos reservados.
+      </p>
+      <p *ngIf="isEnglish">© 2026 Larissa Gatti. All rights reserved.</p>
+    </div>
+  </div>
+</div>
