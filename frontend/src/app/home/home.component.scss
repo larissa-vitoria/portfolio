@@ -465,9 +465,16 @@ $angular-gradient-dark-3: linear-gradient(135deg, #580034 0%, #8b0051 100%);
     gap: 1rem;
     margin-top: 4rem;
 
-    .left-container {
+    .left-container,
+    .right-container {
       display: flex;
       justify-content: center;
+    }
+
+    .right-container {
+      p {
+        font-size: 0.7rem;
+      }
     }
   }
 }
